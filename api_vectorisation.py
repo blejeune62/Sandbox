@@ -22,5 +22,10 @@ def vectorize(prompt: str = Query(..., description="Le texte à vectoriser")):
     return {"vectorized_prompt": vectorized_prompt}
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    import os
+
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8000))  # Render définit automatiquement PORT
+    uvicorn.run(app, host="0.0.0.0", port=port)
+
 
